@@ -93,14 +93,18 @@ class TimelapsePiUi(object):
     self.img = self.page.add_image("")
     self._done = False
     self.show_config(self._configs, self._current_config)
+    # The app sits in this wait loop until we're ready to move into
+    # shooting mode.  Note that the onstartclick (etc) methods will
+    # be called on other thread(s)
     while not self._done:
-        time.sleep(1)
+        time.sleep(0.1)
+
     self.page = self._ui.new_ui_page(title="Shooting")
     self.title = self.page.add_textbox("", "h2")
     self.exp = self.page.add_textbox("", "h3")
     stop = self.page.add_button("Stop", self.onstopclick)
     self.page.add_element('br')
-    self.img = self.page.add_image("sunset.png")
+    self.img = self.page.add_image("")
     self.page.add_element("br")
     self.bright = self.page.add_textbox("", "p")
     self._stop = False
