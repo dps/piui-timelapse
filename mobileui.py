@@ -22,7 +22,7 @@ class TimelapsePiUi(object):
     self.exp.set_text("T: %s ISO: %d" % (config[0], config[1]))
 
   def show_status(self, shot, configs, current):
-    config = self._configs[self._current_config]
+    config = self._configs[current]
     self.title.set_text("Shot %d" % shot)
     self.exp.set_text("T: %s ISO: %d" % (config[0], config[1]))
 
