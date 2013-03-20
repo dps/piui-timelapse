@@ -2,6 +2,7 @@
 
 from datetime import datetime
 from datetime import timedelta
+import os
 import subprocess
 import time
 
@@ -11,6 +12,8 @@ from wrappers import Identify
 from wrappers import NetworkInfo
 
 from mobileui import TimelapsePiUi
+
+current_dir = os.path.dirname(os.path.abspath(__file__))
 
 MIN_INTER_SHOT_DELAY_SECONDS = timedelta(seconds=30)
 MIN_BRIGHTNESS = 20000
@@ -68,6 +71,7 @@ def main():
     #print "Testing Configs"
     #test_configs()
     print "Timelapse"
+    os.chdir(current_dir)
     camera = GPhoto(subprocess)
     idy = Identify(subprocess)
     netinfo = NetworkInfo(subprocess)
