@@ -90,7 +90,7 @@ class TimelapsePiUi(object):
     preview = self.page.add_button("Preview", self.onpreviewclick)
     start = self.page.add_button("Start", self.onstartclick)
     self.page.add_element('br')
-    self.img = self.page.add_image("")
+    self.img = self.page.add_image("camera.png")
     self._done = False
     self.show_config(self._configs, self._current_config)
     # The app sits in this wait loop until we're ready to move into
@@ -104,7 +104,7 @@ class TimelapsePiUi(object):
     self.exp = self.page.add_textbox("", "h3")
     stop = self.page.add_button("Stop", self.onstopclick)
     self.page.add_element('br')
-    self.img = self.page.add_image("")
+    self.img = self.page.add_image("camera.png")
     self.page.add_element("br")
     self.bright = self.page.add_textbox("", "p")
     self._stop = False
